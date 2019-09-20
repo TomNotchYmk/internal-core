@@ -29,12 +29,16 @@ make
 
 ## General Environment Setup
 * Install [GNU Arm toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads) **2017 Q2**
-* Install GNU Make
 * Install [Segger Ozone](https://www.segger.com/downloads/jlink/#Ozone)
 
 ### Windows Specific
 
+* When installing arm toolchain, please add it to your path.
 * Install [MSYS2](https://www.msys2.org/) and add the `C:\msys64\usr\bin` to your path. (assuming you install it in `C:\msys64`)
+* Run the following command in MSYS2:
+    ```bash
+    pacman -S make
+    ```
 
 ### Unix System (Linux and Mac)
 
