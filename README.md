@@ -25,7 +25,7 @@ make
 ```
 
 * `make -j` could make compilation process faster by utilizing multiple core on your computer.
-
+* `make clean` could clear the `.dep` directory and `build` directory. Use it when there are myterious errors such as `cannot find source file for ...`. You can search the web or ask seniors for the detailed reasons behind.
 
 ## General Environment Setup
 * Install [GNU Arm toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads) **2017 Q2**

@@ -1,16 +1,14 @@
 /**
- * @file main.cpp
- * @author John Lam (cklamaq@connect.ust.hk)
- * @brief Example code for using the GY53 driver.
+ * @file main.c
+ * @brief Main file
  * @version 0.1
- * @date 2019-01-11
+ * @date 2019-09-23
  *
  * @copyright Copyright (c) 2019
  *
  */
 #include "ch.h"
 #include "hal.h"
-
 
 static volatile uint16_t val = 0;
 
@@ -33,6 +31,7 @@ int main(void)
     {
         val++;
         if (val % 500 == 0)
+            // toggle LED
             palToggleLine(LINE_LED);
         chThdSleepMilliseconds(1);
     }
