@@ -12,6 +12,18 @@
 
 static volatile uint16_t val = 0;
 
+void turnOffLED(void)
+{
+    palSetLine(LINE_LED);
+    return;
+}
+
+void turnOnLED(void)
+{
+    palClearLine(LINE_LED);
+    return;
+}
+
 int main(void)
 {
     /*
