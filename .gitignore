@@ -67,7 +67,8 @@ dkms.conf
 *.ipch
 *.bin
 
-# ccls related
+# Editor configurations
+.vscode/*
 .ccls-cache
 compile_commands.json
 

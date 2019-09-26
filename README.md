@@ -12,7 +12,7 @@
 ## Directory Structure
 * `board`: Board hardware configuration
 * `build`: Build output (the output elf is `RM20.elf`)
-* `chibios`: ChibiOS library (RTOS)
+* `chibios`: ChibiOS library (RTOS). [Documentation](http://www.chibios.org/dokuwiki/doku.php?id=chibios:documentation:start)
 * `CMSIS`: CMSIS library 
 * `config`: ChibiOS config
 * `datasheets`: Datasheets useful for development
@@ -20,6 +20,8 @@
 * `src`: User source code
 
 ## Compile
+> All commands here should be run in the project directory, not inside `src`.
+
 ```
 make
 ```
@@ -55,4 +57,32 @@ make
    ```bash
    export PATH=$PATH:$HOME/arm-gcc-2017-q2/bin
    ```
+
+## Configuring VSCode
+You can configure VSCode to get a IDE-like experience, including autocomplete function, diagnostics, goto definition etc.
+
+We can tell the extension all necessary configurations through **compilation database**.
+
+1.  Install Python3.
+2.  Install [compiledb](https://github.com/nickdiego/compiledb). Install using the command `pip3 install --user compiledb` to avoid permission problem.
+    > Note that for Windows users, you may have to configure the path variable. Usually the path is in `%APPDATA%/Python/Python37/Scripts` for Python3.7.
+3.  Run `compiledb <make command>`, such as `compiledb make -j`, and it would compile the project and generate the compilation database for you.
+4.  Configure `c_cpp_properties.json` by opening the command panel, type `C/C++ Edit Configuration`, 
+    select `C/C++: Edit Configurations (JSON)`, and change the content to:
+    ```json
+    {
+        "configurations": [
+            {
+                "name": "ARM",
+                "compileCommands": "${workspaceFolder}/compile_commands.json",
+                "cStandard": "c11",
+                "cppStandard": "c++17"
+            }
+        ],
+        "version": 4
+    }
+    ```
+
+### ccls
+If you want more, you can check out [ccls](https://github.com/MaskRay/ccls).
 
