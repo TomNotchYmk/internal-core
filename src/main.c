@@ -12,30 +12,24 @@
 #include "peripherals/usbcfg.h"
 #include "shell/shell.h"
 #include "shell/shell_manager.h"
+#include "count.h"
+#include "chprintf.h"
 
 static volatile uint16_t val = 0;
 
-void turnOffLED(void)
+void countCmd(BaseSequentialStream *chp, int argc, char *argv[])
 {
-    palSetLine(LINE_LED);
-    return;
+    static const uint8_t err[] = "Invalid input\r\n";
+    if (argc != 1)
+    {
+        streamWrite(chp, err, sizeof(err));
+        return;
+    }
+    Result r = getLargestConsecutiveChar(argv[0]);
+    chprintf(chp, "Char: %c, Count: %d\r\n", r.c, r.length);
 }
 
-void turnOnLED(void)
-{
-    palClearLine(LINE_LED);
-    return;
-}
-
-void hello(BaseSequentialStream *chp, int argc, char *argv[])
-{
-    (void)argc;
-    (void)argv;
-    static char msg[] = "Hello\r\n";
-    streamWrite(chp, msg, sizeof(msg));
-}
-
-ShellCommand cmd[] = {{"hello", hello}, {NULL, NULL}};
+ShellCommand cmd[] = {{"count", countCmd}, {NULL, NULL}};
 
 int main(void)
 {
@@ -57,9 +51,6 @@ int main(void)
     while (true)
     {
         val++;
-        if (val % 500 == 0)
-            // toggle LED
-            palToggleLine(LINE_LED);
         chThdSleepMilliseconds(1);
     }
 }
