@@ -19,7 +19,7 @@ static volatile uint16_t val = 0;
 
 void countCmd(BaseSequentialStream *chp, int argc, char *argv[])
 {
-    static const uint8_t err[] = "Invalid input";
+    static const uint8_t err[] = "Invalid input\r\n";
     if (argc != 1)
     {
         streamWrite(chp, err, sizeof(err));
