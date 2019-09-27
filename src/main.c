@@ -9,6 +9,9 @@
  */
 #include "ch.h"
 #include "hal.h"
+#include "peripherals/usbcfg.h"
+#include "shell/shell.h"
+#include "shell/shell_manager.h"
 
 static volatile uint16_t val = 0;
 
@@ -24,6 +27,16 @@ void turnOnLED(void)
     return;
 }
 
+void hello(BaseSequentialStream *chp, int argc, char *argv[])
+{
+    (void)argc;
+    (void)argv;
+    static char msg[] = "Hello\r\n";
+    streamWrite(chp, msg, sizeof(msg));
+}
+
+ShellCommand cmd[] = {{"hello", hello}, {NULL, NULL}};
+
 int main(void)
 {
     /*
@@ -35,6 +48,8 @@ int main(void)
      */
     halInit();
     chSysInit();
+    setup_USB();
+    shellManagerStart(cmd);
 
     /***************************************************************
      ***************************************************************/

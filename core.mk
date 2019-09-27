@@ -112,7 +112,6 @@ include $(CHIBIOS)/os/common/ports/ARMCMx/compilers/GCC/mk/port_v7m.mk
 include $(CHIBIOS)/os/various/cpp_wrappers/chcpp.mk
 # Other files (optional).
 include $(CHIBIOS)/os/hal/lib/streams/streams.mk
-include $(COREDIR)/src/shell/shell.mk
 
 # Define linker script file here
 LDSCRIPT= $(COREDIR)/$(BOARD_NAME).ld

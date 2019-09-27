@@ -8,8 +8,7 @@ USE_FPU = no
 
 include ./board/board.mk
 
-# Compile all .c and .cpp files in the root directory
-ALLCSRC += $(wildcard ./src/*.c)
-ALLCPPSRC += $(wildcard ./src/*.cpp)
+# Compile all .c files in the root directory
+ALLCSRC += $(wildcard ./src/**/*.c) $(wildcard ./src/*.c)
 
 include $(COREDIR)/core.mk

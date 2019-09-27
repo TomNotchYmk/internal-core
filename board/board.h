@@ -157,15 +157,15 @@ following refer to stm32f1 reference manual section 9.1
 #define VAL_GPIOECRH            0x88888888      /* PE15...PE8 */
 #define VAL_GPIOEODR            0xFFFFFFFF
 
-// /*
-//  * USB bus activation macro, required by the USB driver.
-//  */
-// #define usb_lld_connect_bus(usbp)	/* always connected */
+/*
+ * USB bus activation macro, required by the USB driver.
+ */
+#define usb_lld_connect_bus(usbp)	/* always connected */
 
-// /*
-//  * USB bus de-activation macro, required by the USB driver.
-//  */
-// #define usb_lld_disconnect_bus(usbp)	/* always connected */
+/*
+ * USB bus de-activation macro, required by the USB driver.
+ */
+#define usb_lld_disconnect_bus(usbp)	/* always connected */
 
 #if !defined(_FROM_ASM_)
 #ifdef __cplusplus
