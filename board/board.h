@@ -14,6 +14,10 @@
 #ifndef _BOARD_H_
 #define _BOARD_H_
 
+// note: I copied things from previous code, which is not this board and modified some of them.
+// the configurations here maybe misleading.
+// will be fixed later.
+
 /*
  * Setup for the STM32F103C8T6 Module often described as "Arduino"-like
  * on eBay, typically marked "www.vcc-gnd.com".
@@ -49,34 +53,6 @@
  */
 
 /* on-board */
-
-#define GPIOA_LED               8U
-#define GPIOA_BUTTON            15U
-
-#define GPIOA_CAN_RX            11U
-#define GPIOA_CAN_TX            12U
-
-#define GPIOA_USART1_TX         9U
-#define GPIOA_USART1_RX         10U
-
-#define GPIOA_SERIAL_USB_RX     GPIOA_USART1_RX
-#define GPIOA_SERIAL_USB_TX     GPIOA_USART1_TX
-
-#define GPIOA_USART2_TX         2U
-#define GPIOA_USART2_RX         3U
-
-#define GPIOB_I2C2_SCL          10U
-#define GPIOB_I2C2_SDA          11U
-
-#define GPIOB_MPU6050_INT       3U
-#define GPIOB_MPU6050_SCL       GPIOB_I2C2_SCL
-#define GPIOB_MPU6050_SDA       GPIOB_I2C2_SDA
-
-//only HSE which uses the following pin, no LSE
-#define GPIOC_OSC_IN          14U
-#define GPIOC_OSC_OUT         15U
-
-
 
 #define LINE_LED PAL_LINE(GPIOC, 13)
 
